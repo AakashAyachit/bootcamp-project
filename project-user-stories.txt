@@ -1,0 +1,55 @@
+
+Telecom Customer Onboarding System
+Description:  
+Develop a customer onboarding system for a telecom company to streamline the registration, document verification, and service activation processes.
+
+User Stories and Backlog: 
+
+User Story 1: Customer Registration 
+- As a customer service representative, I want to capture and store customer details accurately, So that new customers can be onboarded efficiently.
+
+Epic 1: Customer Registration
+1.Create registration page 
+2. Create login page and validation of user + pass combo
+3. Design UI 
+4. Connect to MySQL database to store customer details.
+
+User Story 2: Document Verification 
+-  As a system, I want to verify the uploaded customer documents through third-party services, So that the registration process is accurate and secure.
+
+Epic 2:
+1. Integrate with third-party API for document verification.
+2. Store verification status in the database.
+3. Implement error handling for failed verification.
+4. Provide feedback to the customer service representative on verification status.
+
+User Story 3: Service Activation 
+-  As a system, I want to activate telecom services based on verified customer information,  So that  customers can start using their chosen telecom services.
+
+Epic 3 :
+1. Design the service activation workflow.
+2. Implement logic to activate services based on customer plans.
+3. Develop email notification service using Spring Boot.
+4. Update customer status in the database post-activation.
+5. Generate and send welcome emails to customers.
+
+Backlog: 
+1.  Customer Registration 
+   - Set up project structure in Spring Boot
+   - API design for customer details submission.
+   - Database schema design for customer information.
+   - Input validation logic for customer fields.
+   - File upload for documents.
+
+2.  Document Verification 
+   - API integration for document verification.
+   - Database updates for verification status.
+   - Error handling and feedback mechanisms.
+
+3.  Service Activation 
+   - Workflow design for service activation.
+   - Implement activation based on customer plan selection.
+   - Email service setup.
+   - Update database with service activation status.
+   - Send confirmation and welcome emails.
+
