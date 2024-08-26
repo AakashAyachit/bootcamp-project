@@ -6,13 +6,15 @@ Develop a customer onboarding system for a telecom company to streamline the reg
 User Stories and Backlog: 
 
 User Story 1: Customer Registration 
-- As a customer service representative, I want to capture and store customer details accurately, So that new customers can be onboarded efficiently.
+- As a customer, I want to store my details accurately, for fast onboarding.
 
 Epic 1: Customer Registration
-1.Create registration page 
-2. Create login page and validation of user + pass combo
-3. Design UI 
+1. Create registration page 
+2. Create login page and sccept username of user.
+3. Design UI
 4. Connect to MySQL database to store customer details.
+5. Filter customers wrt some properties
+6. As a customer, i want to view and edit my info - MyProfile
 
 User Story 2: Document Verification 
 -  As a system, I want to verify the uploaded customer documents through third-party services, So that the registration process is accurate and secure.
@@ -21,12 +23,13 @@ Epic 2:
 1. Integrate with third-party API for document verification.
 2. Store verification status in the database.
 3. Implement error handling for failed verification.
-4. Provide feedback to the customer service representative on verification status.
+4. Provide feedback to the customer on verification status.
 
 User Story 3: Service Activation 
 -  As a system, I want to activate telecom services based on verified customer information,  So that  customers can start using their chosen telecom services.
 
-Epic 3 :
+Epic 3 : if doc is valid - keep data in db
+         if doc is invalid - delete record from db
 1. Design the service activation workflow.
 2. Implement logic to activate services based on customer plans.
 3. Develop email notification service using Spring Boot.
