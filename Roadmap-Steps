@@ -1,0 +1,8 @@
+create tables
+springboot
+create dao layer - data jpa - springboot
+connect underlying entities with db schema
+create repo
+create service layer- comms with data layer/repo
+create rest api, endpoints-keep simple names eg get emp, post emp - same names for all
+
