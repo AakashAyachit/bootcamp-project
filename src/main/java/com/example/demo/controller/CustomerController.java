@@ -10,27 +10,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.customerrepo.CustomerRepo;
 import com.example.demo.customerservice.CustomerService;
 import com.example.demo.entities.Customer;
 
 @RestController
-@RequestMapping("/api/customer")
+@RequestMapping("")
 public class CustomerController {
 
 	
 	@Autowired
-	private CustomerService customerservice;
-	
-	@PostMapping("/register")
-	public ResponseEntity<Customer> registerCustomer(@RequestBody Customer customer) {
-	Customer registeredCustomer = customerservice.registerCustomer(customer);
-		
-		return ResponseEntity.ok(registeredCustomer);
-	}
-	
-	@GetMapping
-    public ResponseEntity<List<Customer>> getAllCustomers() {
-        return ResponseEntity.ok(customerservice.getAllCustomers());
+    private CustomerRepo customerRepo;
+
+    @PostMapping("/register")
+    public Customer registerCustomer(@RequestBody Customer customer) {
+        // Save customer to the repository
+        return customerRepo.save(customer);
     }
+	
 	
 }
