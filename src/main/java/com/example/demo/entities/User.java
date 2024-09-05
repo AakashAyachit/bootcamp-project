@@ -31,7 +31,7 @@ public class User implements UserDetails {
     @Column(unique = true, length = 100, nullable = false)
     private String email;
     
-    @Column(unique = true, nullable = false, length = 10)
+    @Column(unique = true, nullable = false, length = 12)
     private String aadhaarNumber;
     
     @Column()

@@ -42,6 +42,7 @@ public class AuthenticationService {
 
     public User authenticate(LoginUserDto input) {
     	System.out.println("INSIDE USER AUTHENTICATION : " + input.getAadhaarNumber());
+    	System.out.println("INSIDE USER Password : " + input.getPassword());
         authenticationManager.authenticate(
             new UsernamePasswordAuthenticationToken(
                 input.getAadhaarNumber(),
