@@ -1,0 +1,90 @@
+.plan-card {
+    background-color: #ffffff;
+    border: 1px solid #d0d6dd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px; 
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .plan-card h3 {
+    font-size: 1.2rem;
+    color: #005f9e;
+    margin-bottom: 10px;
+  }
+  
+  .plan-card h4 {
+    font-size: 1.5rem;
+    color: #0072ce; 
+    margin-bottom: 15px;
+  }
+  
+  .plan-card p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  
+  .plan-card button {
+    background-color: #005f9e; 
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+    width: 100%;
+  }
+  
+  .plan-card button:hover {
+    background-color: #003f6e; 
+  }
+  
+
+  .combined-data-plan {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #f9fbff;
+  }
+  
+  .data-plans-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 0px; 
+  }
+  
+  .individual-data-plan {
+    background-color: #ffffff;
+    border: 1px solid #d0d0dd;
+    border-radius: 5px;
+    padding: 20px;
+    width: 55%; 
+    text-align: center; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .individual-data-plan h4 {
+    color: #0072ce;
+  }
+  
+  .individual-data-plan button {
+    margin-top: 20px;
+    width: 100%;
+  }
+  
