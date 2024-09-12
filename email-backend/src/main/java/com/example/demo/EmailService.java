@@ -12,35 +12,32 @@ public class EmailService {
 
     @Autowired
     private JavaMailSender mailSender;
-    
+
     private String generateOTP() {
         Random random = new Random();
         int otp = 100000 + random.nextInt(900000);
         return String.valueOf(otp);
     }
 
+    public String sendVerificationSuccessEmail(String to) {
+        String otp = generateOTP();
 
-    public void sendVerificationSuccessEmail(String to) {
-    	
-    	String otp = generateOTP();
-    	
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);
         message.setSubject("Document Verification Successful");
         message.setText("Dear User,\r\n"
-        		+ "\r\n"
-        		+ "Your document has been successfully verified.\r\n"
-        		+ "\r\n"
-        		+ "For secure login, please use the following One-Time Password (OTP): " + otp + "\n\n"
-        		+ "Please click the link below to be redirected to the vendor site.\r\n"
-        		+ "goodurl.com\r\n"
-        		+ "You can now select your plans.\r\n"
-        		+ "");
+                + "\r\n"
+                + "Your document has been successfully verified.\r\n"
+                + "\r\n"
+                + "For secure login, please use the following One-Time Password (OTP): " + otp + "\n\n"
+                + "Please click the link below to be redirected to the vendor site.\r\n"
+                + "select-plans.com\r\n"
+                + "You can now select your plans.\r\n");
 
         mailSender.send(message);
-        
+
         System.out.println("OTP sent to user: " + otp);
-        
+        return otp; // Return OTP for session storage
     }
 
     public void sendVerificationFailureEmail(String to) {
@@ -48,12 +45,11 @@ public class EmailService {
         message.setTo(to);
         message.setSubject("Document Verification Failed");
         message.setText("Dear User,\r\n"
-        		+ "\r\n"
-        		+ "Unfortunately, your document verification failed.\r\n"
-        		+ "\r\n"
-        		+ "Please try again or contact support using the given link..\r\n"
-        		+ "url.com\r\n"
-        		);
+                + "\r\n"
+                + "Unfortunately, your document verification failed.\r\n"
+                + "\r\n"
+                + "Please try again or contact support using the given link.\r\n"
+                + "url.com\r\n");
 
         mailSender.send(message);
     }
