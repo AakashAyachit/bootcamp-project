@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Upload Image</title>
+	
+	<style>
+		
+		body {
+		    font-family: Arial, sans-serif;
+		    margin: 20px;
+		    padding: 20px;
+		    background: #f7f7f7;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    height: 100vh;
+		}
+
+		.container {
+		    background: #fff;
+		    padding: 30px;
+		    border-radius: 10px;
+		    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+		    text-align: center;
+		    animation: fadeIn 1s ease-in-out;
+		}
+
+		h1 {
+		    color: #333;
+		    font-size: 2.5rem;
+		    margin-bottom: 20px;
+		    animation: slideInFromLeft 0.8s ease-out;
+		}
+
+		form {
+		    margin-top: 20px;
+		}
+
+		input[type="file"] {
+		    margin-bottom: 20px;
+		    padding: 10px;
+		    border: 2px solid #ddd;
+		    border-radius: 5px;
+		    cursor: pointer;
+		    transition: all 0.3s ease;
+		}
+
+		input[type="file"]:hover {
+		    border-color: #2196F3;
+		}
+
+		button {
+		    padding: 10px 20px;
+		    background-color: #2196F3;
+		    color: white;
+		    border: none;
+		    border-radius: 5px;
+		    cursor: pointer;
+		    transition: background-color 0.3s ease;
+		}
+
+		button:hover {
+		    background-color: #0b7dda;
+		}
+
+		.message {
+		    margin-top: 20px;
+		    font-size: 1.2rem;
+		}
+
+		.error {
+		    color: red;
+		    animation: shake 0.5s;
+		}
+
+		.success {
+		    color: green;
+		    animation: fadeIn 1s ease-in;
+		}
+
+		/* Animations */
+		@keyframes fadeIn {
+		    from { opacity: 0; }
+		    to { opacity: 1; }
+		}
+
+		@keyframes slideInFromLeft {
+		    from { transform: translateX(-100%); opacity: 0; }
+		    to { transform: translateX(0); opacity: 1; }
+		}
+
+		@keyframes shake {
+		    0% { transform: translateX(0); }
+		    25% { transform: translateX(-5px); }
+		    50% { transform: translateX(5px); }
+		    75% { transform: translateX(-5px); }
+		    100% { transform: translateX(0); }
+		}
+
+		
+	</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Aadhar for Verification</h1>
+        <form th:action="@{/ocr/verify}" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*"/>
+            <br/>
+            <button type="submit">Upload</button>
+        </form>
+        
+        <!-- Error Message -->
+        <div class="message error" th:if="${error}">
+            <p th:text="${error}"></p>
+        </div>
+        
+        <!-- Success Message -->
+        <div class="message success" th:if="${aadhaarNumber}">
+            <p>Aadhaar Number: <span th:text="${aadhaarNumber}"></span></p>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const errorMsg = document.querySelector('.error');
+            const successMsg = document.querySelector('.success');
+            if (errorMsg) {
+                errorMsg.scrollIntoView({ behavior: 'smooth' });
+            } else if (successMsg) {
+                successMsg.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
+    </script>
+</body>
+</html>
